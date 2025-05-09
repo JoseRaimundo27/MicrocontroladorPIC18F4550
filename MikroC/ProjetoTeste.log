@@ -1,0 +1,16 @@
+0	1	mikroCPIC1618.exe -MSF -DBG -pP18F4450 -RA -LHF -GC -DL -O11111114 -fo4 -N"C:\Users\joser\Documents\Desktop\EngComp\LabII\ProjetoTeste\MikroC\ProjetoTeste.mcppi" -SP"D:\MicroC\mikroC PRO for PIC\Defs\" -SP"D:\MicroC\mikroC PRO for PIC\uses\P18\" -SP"C:\Users\joser\Documents\Desktop\EngComp\LabII\ProjetoTeste\MikroC\" -IP"D:\MicroC\mikroC PRO for PIC\uses\P18\" "ProjetoTeste.c" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl"	 
+hint: 0	1139	Available RAM: 747 [bytes], Available ROM: 16384 [bytes]	 
+diagnostics: 0	122	Compilation Started	P18F4450.c
+diagnostics: 1310	123	Compiled Successfully	P18F4450.c
+diagnostics: 0	122	Compilation Started	__Lib_Delays.c
+diagnostics: 172	123	Compiled Successfully	__Lib_Delays.c
+diagnostics: 0	122	Compilation Started	ProjetoTeste.c
+diagnostics: 13	123	Compiled Successfully	ProjetoTeste.c
+diagnostics: 0	127	All files Compiled in 78 ms	 
+hint: 0	1144	Used RAM (bytes): 0 (1%)  Free RAM (bytes): 747 (99%)	Used RAM (bytes): 0 (1%)  Free RAM (bytes): 747 (99%)
+hint: 0	1144	Used ROM (bytes): 96 (1%)  Free ROM (bytes): 16288 (99%)	Used ROM (bytes): 96 (1%)  Free ROM (bytes): 16288 (99%)
+diagnostics: 0	125	Project Linked Successfully	ProjetoTeste.mcppi
+hint: 0	1004	COFF file successfully generated	COFF file successfully generated
+diagnostics: 0	128	Linked in 141 ms	 
+diagnostics: 0	129	Project 'ProjetoTeste.mcppi' completed: 360 ms	 
+diagnostics: 0	103	Finished successfully: 09 mai 2025, 10:40:29	ProjetoTeste.mcppi
