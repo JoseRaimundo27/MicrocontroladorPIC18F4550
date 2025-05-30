@@ -1,78 +1,71 @@
-/* 
- * PIC18F4550 Configuration Bit Settings
- * http://www.electronicwings.com
+/*
+ * File:   example2.c
+ * Author: Microchip Technology
+ *
+ * Created on January 4, 2017, 1:43 PM
  */
 
+/******************************************************************************
+ * Software License Agreement
+ *
+ * Copyright ? 2017 Microchip Technology Inc.  All rights reserved.
+ * Microchip licenses to you the right to use, modify, copy and distribute
+ * Software only when embedded on a Microchip microcontroller or digital
+ * signal controller, which is integrated into your product or third party
+ * product (pursuant to the sublicense terms in the accompanying license
+ * agreement).
+ *
+ * You should refer to the license agreement accompanying this Software
+ * for additional information regarding your rights and obligations.
+ *
+ * SOFTWARE AND DOCUMENTATION ARE PROVIDED ÏAS ISÓ WITHOUT WARRANTY OF ANY
+ * KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION, ANY WARRANTY
+ * OF MERCHANTABILITY, TITLE, NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR
+ * PURPOSE. IN NO EVENT SHALL MICROCHIP OR ITS LICENSORS BE LIABLE OR
+ * OBLIGATED UNDER CONTRACT, NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION,
+ * BREACH OF WARRANTY, OR OTHER LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT
+ * DAMAGES OR EXPENSES INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL,
+ * INDIRECT, PUNITIVE OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA,
+ * COST OF PROCUREMENT OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY
+ * CLAIMS BY THIRD PARTIES (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF),
+ * OR OTHER SIMILAR COSTS.
+ *
+ *****************************************************************************/
 
-/* PIC18F4550 Configuration Bit Settings*/
+// PIC32MX470F512L Configuration Bit Settings
+// 'C' source line config statements
+// DEVCFG3
+// USERID = No Setting
+#pragma config FSRSSEL = PRIORITY_7     // Shadow Register Set Priority Select (SRS Priority 7)
+#pragma config PMDL1WAY = ON            // Peripheral Module Disable Configuration (Allow only one reconfiguration)
+#pragma config IOL1WAY = ON             // Peripheral Pin Select Configuration (Allow only one reconfiguration)
+#pragma config FUSBIDIO = ON            // USB USID Selection (Controlled by Port Function)
+#pragma config FVBUSONIO = ON           // USB VBUS ON Selection (Controlled by Port Function)
 
-/* 'C' source line config statements*/
+// DEVCFG2
+#pragma config FPLLIDIV = DIV_12        // PLL Input Divider (12x Divider)
+#pragma config FPLLMUL = MUL_24         // PLL Multiplier (24x Multiplier)
+#pragma config UPLLIDIV = DIV_12        // USB PLL Input Divider (12x Divider)
+#pragma config UPLLEN = OFF             // USB PLL Enable (Disabled and Bypassed)
+#pragma config FPLLODIV = DIV_256       // System PLL Output Clock Divider (PLL Divide by 256)
 
-#include <xc.h>
+// DEVCFG1
+#pragma config FNOSC = FRCDIV           // Oscillator Selection Bits (Fast RC Osc w/Div-by-N (FRCDIV))
+#pragma config FSOSCEN = ON             // Secondary Oscillator Enable (Enabled)
+#pragma config IESO = OFF               // Internal/External Switch Over (Disabled)
+#pragma config POSCMOD = OFF            // Primary Oscillator Configuration (Primary osc disabled)
+#pragma config OSCIOFNC = OFF           // CLKO Output Signal Active on the OSCO Pin (Disabled)
+#pragma config FPBDIV = DIV_8           // Peripheral Clock Divisor (Pb_Clk is Sys_Clk/8)
+#pragma config FCKSM = CSDCMD           // Clock Switching and Monitor Selection (Clock Switch Disable, FSCM Disabled)
+#pragma config WDTPS = PS1048576        // Watchdog Timer Postscaler (1:1048576)
+#pragma config WINDIS = OFF             // Watchdog Timer Window Enable (Watchdog Timer is in Non-Window Mode)
+#pragma config FWDTEN = OFF             // Watchdog Timer Enable (WDT Disabled (SWDTEN Bit Controls))
+#pragma config FWDTWINSZ = WINSZ_25     // Watchdog Timer Window Size (Window Size is 25%)
 
-// #pragma config statements should precede project file includes.
-// Use project enums instead of #define for ON and OFF.
-
-// CONFIG1L
-#pragma config PLLDIV = 1       // PLL Prescaler Selection bits (No prescale (4 MHz oscillator input drives PLL directly))
-#pragma config CPUDIV = OSC1_PLL2// System Clock Postscaler Selection bits ([Primary Oscillator Src: /1][96 MHz PLL Src: /2])
-#pragma config USBDIV = 1       // USB Clock Selection bit (used in Full-Speed USB mode only; UCFG:FSEN = 1) (USB clock source comes directly from the primary oscillator block with no postscale)
-
-// CONFIG1H
-#pragma config FOSC = INTOSC_EC // Oscillator Selection bits (Internal oscillator, CLKO function on RA6, EC used by USB (INTCKO))
-#pragma config FCMEN = OFF      // Fail-Safe Clock Monitor Enable bit (Fail-Safe Clock Monitor disabled)
-#pragma config IESO = OFF       // Internal/External Oscillator Switchover bit (Oscillator Switchover mode disabled)
-
-// CONFIG2L
-#pragma config PWRT = OFF       // Power-up Timer Enable bit (PWRT disabled)
-#pragma config BOR = ON         // Brown-out Reset Enable bits (Brown-out Reset disabled in hardware and software)
-#pragma config BORV = 3         // Brown-out Reset Voltage bits (Minimum setting 2.05V)
-#pragma config VREGEN = OFF     // USB Voltage Regulator Enable bit (USB voltage regulator disabled)
-
-// CONFIG2H
-#pragma config WDT = OFF        // Watchdog Timer Enable bit (WDT disabled (control is placed on the SWDTEN bit))
-#pragma config WDTPS = 32768    // Watchdog Timer Postscale Select bits (1:32768)
-
-// CONFIG3H
-#pragma config CCP2MX = ON      // CCP2 MUX bit (CCP2 input/output is multiplexed with RC1)
-#pragma config PBADEN = OFF      // PORTB A/D Enable bit (PORTB<4:0> pins are configured as analog input channels on Reset)
-#pragma config LPT1OSC = OFF    // Low-Power Timer 1 Oscillator Enable bit (Timer1 configured for higher power operation)
-#pragma config MCLRE = OFF      // MCLR Pin Enable bit (RE3 input pin enabled; MCLR pin disabled)
-
-// CONFIG4L
-#pragma config STVREN = ON      // Stack Full/Underflow Reset Enable bit (Stack full/underflow will cause Reset)
-#pragma config LVP = OFF         // Single-Supply ICSP Enable bit (Single-Supply ICSP enabled)
-#pragma config ICPRT = OFF      // Dedicated In-Circuit Debug/Programming Port (ICPORT) Enable bit (ICPORT disabled)
-#pragma config XINST = OFF      // Extended Instruction Set Enable bit (Instruction set extension and Indexed Addressing mode disabled (Legacy mode))
-
-// CONFIG5L
-#pragma config CP0 = OFF        // Code Protection bit (Block 0 (000800-001FFFh) is not code-protected)
-#pragma config CP1 = OFF        // Code Protection bit (Block 1 (002000-003FFFh) is not code-protected)
-#pragma config CP2 = OFF        // Code Protection bit (Block 2 (004000-005FFFh) is not code-protected)
-#pragma config CP3 = OFF        // Code Protection bit (Block 3 (006000-007FFFh) is not code-protected)
-
-// CONFIG5H
-#pragma config CPB = OFF        // Boot Block Code Protection bit (Boot block (000000-0007FFh) is not code-protected)
-#pragma config CPD = OFF        // Data EEPROM Code Protection bit (Data EEPROM is not code-protected)
-
-// CONFIG6L
-#pragma config WRT0 = OFF       // Write Protection bit (Block 0 (000800-001FFFh) is not write-protected)
-#pragma config WRT1 = OFF       // Write Protection bit (Block 1 (002000-003FFFh) is not write-protected)
-#pragma config WRT2 = OFF       // Write Protection bit (Block 2 (004000-005FFFh) is not write-protected)
-#pragma config WRT3 = OFF       // Write Protection bit (Block 3 (006000-007FFFh) is not write-protected)
-
-// CONFIG6H
-#pragma config WRTC = OFF       // Configuration Register Write Protection bit (Configuration registers (300000-3000FFh) are not write-protected)
-#pragma config WRTB = OFF       // Boot Block Write Protection bit (Boot block (000000-0007FFh) is not write-protected)
-#pragma config WRTD = OFF       // Data EEPROM Write Protection bit (Data EEPROM is not write-protected)
-
-// CONFIG7L
-#pragma config EBTR0 = OFF      // Table Read Protection bit (Block 0 (000800-001FFFh) is not protected from table reads executed in other blocks)
-#pragma config EBTR1 = OFF      // Table Read Protection bit (Block 1 (002000-003FFFh) is not protected from table reads executed in other blocks)
-#pragma config EBTR2 = OFF      // Table Read Protection bit (Block 2 (004000-005FFFh) is not protected from table reads executed in other blocks)
-#pragma config EBTR3 = OFF      // Table Read Protection bit (Block 3 (006000-007FFFh) is not protected from table reads executed in other blocks)
-
-// CONFIG7H
-#pragma config EBTRB = OFF      // Boot Block Table Read Protection bit (Boot block (000000-0007FFh) is not protected from table reads executed in other blocks)
-
-
+// DEVCFG0
+#pragma config DEBUG = OFF              // Background Debugger Enable (Debugger is Disabled)
+#pragma config JTAGEN = OFF             // JTAG Enable (JTAG Disabled)
+#pragma config ICESEL = ICS_PGx2        // ICE/ICD Comm Channel Select (Communicate on PGEC2/PGED2)
+#pragma config PWP = OFF                // Program Flash Write Protect (Disable)
+#pragma config BWP = OFF                // Boot Flash Write Protect bit (Protection Disabled)
+#pragma config CP = OFF                 // Code Protect (Protection Disabled)

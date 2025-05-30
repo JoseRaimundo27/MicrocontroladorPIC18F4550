@@ -23,9 +23,8 @@ unsigned char keypad[4][4]= {'7','8','9','/',
 void main() 
 {
     char key;
-    OSCCON = 0x72;
 
-    RBPU=0;                             /* activate pull-up resistor */
+    CNPUESET=0xF0;                             /* activate pull-up resistor */
     LCD_Init();                         /* initialize LCD16x2 in 4-bit mode */
     LCD_String_xy(0,0,"Press a Key");
     LCD_Command(0xC0);                  /* display pressed key on 2nd line of LCD */
